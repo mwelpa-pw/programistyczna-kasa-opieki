@@ -14,7 +14,7 @@ enum Currency {
 
 class Account {
     private:
-        static int id;
+        static int accountId;
         static int accountNumber;
         int clientId;
         int balance;
@@ -23,17 +23,17 @@ class Account {
     public:
         Account(int clientId, int balance, int accountNumber, Type type, Currency currency = PLN)
             : clientId(clientId), balance(0), type(type), currency(currency=PLN) {
-                id++;
+                accountId++;
                 accountNumber++;
             }
 
-        int getId() const { return id; }
+        int getId() const { return accountId; }
         int getClientId() const { return clientId; }
         int getBalance() const { return balance; }
         Currency getCurrency() const { return currency; }
         Type getType() const { return type; }
         int getAccountNumber() const { return accountNumber; }
-        
+
         void deposit(int amount) { balance += amount; }
 
         bool withdraw(int amount) {
